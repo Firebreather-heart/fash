@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 {
     char cwd[256];
     char *buf = NULL;
-    char **args = NULL; 
+    char **args = NULL;
     char *filename = NULL;
 
     while (1)
@@ -20,10 +20,10 @@ int main(int argc, char **argv)
         printf("\033[?12h");
         getline(&buf, &n, stdin);
 
-        args = tokenize(buf, strlen(buf)); 
+        args = tokenize(buf, strlen(buf));
         if (args[0] != NULL)
         {
-            filename = args[0]; 
+            filename = args[0];
 
             pid_t pid = fork();
 
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
             {
                 execve(filename, args, NULL);
                 fprintf(stderr, "\033[31mE:\033[0m %s\n", strerror(errno));
-                exit(EXIT_FAILURE); 
+                exit(EXIT_FAILURE);
             }
             else if (pid > 0)
             {
@@ -43,7 +43,7 @@ int main(int argc, char **argv)
             }
         }
 
-        free_tokens(args); 
+        free_tokens(args);
     }
 
     free(buf);

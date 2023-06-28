@@ -3,4 +3,8 @@
 
 void executeDefaultCommand(char *command);
 
-#endif 
+/* 
+ * executeCommand is used to execute files
+*/
+void executeCommand(char *binf);
+#endif
