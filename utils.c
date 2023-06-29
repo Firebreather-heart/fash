@@ -1,25 +1,42 @@
 #include "utils.h"
+#include <string.h>
+#include <stdlib.h>
 
-char **reader(char *dir)
+
+void reader(const char *dir, const char ***dircont, int *count)
 {
     DIR *od = opendir(dir);
     struct dirent *entry;
-    char **dircont;
-    int cnt = 0;
 
     if (od)
     {
-        while ((entry = readdir(dir)) != NULL)
+        *count = 0;
+        *dircont = NULL;
+
+        while ((entry = readdir(od)) != NULL)
         {
-            dircont[cnt] = entry->d_name;
-            cnt++;
+            (*count)++;
+            *dircont = realloc(*dircont, (*count) * sizeof(const char *));
+            (*dircont)[*count - 1] = strdup(entry->d_name);
         }
-        closedir(dir);
-        return dircont;
+
+        closedir(od);
     }
     else
     {
         perror("An error occurred!");
-        return 1;
     }
+}
+
+int search(const char **arr, char *vector, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        if (strcmp(arr[i], vector))
+        {
+            return 0;
+            break;
+        }
+    }
+    return 1;
 }

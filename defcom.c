@@ -13,5 +13,7 @@ void executeDefaultCommand(char *command){
 }
 
 void executeCommand(char *binf, char **args){
-    execve(binf, args, NULL);
+    char basepath[100] = "./fbin/";
+    strcat(basepath, binf);
+    execve(basepath, args, NULL);
 }

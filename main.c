@@ -6,12 +6,17 @@
 char *prompt = "# ";
 size_t n = 10;
 
+
 int main(int argc, char **argv)
 {
     char cwd[256];
     char *buf = NULL;
     char **args = NULL;
     char *filename = NULL;
+
+    const char **ffs = NULL;
+    int ffsCount = 0;
+    reader("./fbin", &ffs, &ffsCount);
 
     while (1)
     {
@@ -29,9 +34,16 @@ int main(int argc, char **argv)
 
             if (pid == 0)
             {
-                execve(filename, args, NULL);
-                fprintf(stderr, "\033[31mE:\033[0m %s\n", strerror(errno));
-                exit(EXIT_FAILURE);
+                if (search(ffs, filename, ffsCount) == 0)
+                {
+                    executeCommand(filename, args);
+                    fprintf(stderr, "\033[31mE:\033[0m %s\n", strerror(errno));
+                    exit(EXIT_FAILURE);
+                }
+                else
+                {
+                    fprintf(stderr, "unknown command %s", filename);
+                }
             }
             else if (pid > 0)
             {
@@ -47,4 +59,9 @@ int main(int argc, char **argv)
     }
 
     free(buf);
+    for (int i = 0; i < ffsCount; i++)
+    {
+        free(ffs[i]);
+    }
+    free(ffs);
 }

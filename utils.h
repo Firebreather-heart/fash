@@ -1,4 +1,5 @@
 #include <dirent.h>
 #include <stdio.h>
 
-char **reader(char *dir);
+void reader(const char *dir, const char ***dircont, int *count);
+int search(const char **arr, char *vector, int size);

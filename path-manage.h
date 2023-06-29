@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define MAX_PATHS 100
+#define MAX_PATHS 10000
 #define MAX_PATH_LEN 512
 
 static char paths[MAX_PATHS][MAX_PATH_LEN];
