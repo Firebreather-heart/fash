@@ -8,4 +8,13 @@
 
 <p>The code was compiled with </p>
    <code>gcc *.c -o fash </code>
-compile it similarly
+<p>compile it similarly</p>
+
+<h3>Config</h3>
+<p>The config folder contains the config files the program needs to run.</p>
+
+<h3>fbin</h3>
+<p>The fbin folder contains installed binaries which are executed when commands are given </p>
+
+<h3>Source</h3>
+<p>The source contains the source code for the bin files</p>
