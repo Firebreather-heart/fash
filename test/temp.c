@@ -1,9 +1,5 @@
 #include <stdio.h>
 #include "tokenizer.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include <errno.h>
 
 #define MAX_COMMAND_LEN 1024
 
@@ -33,21 +29,28 @@ int main(int argc, char **argv)
         {
             filename = args[0];
 
-            if (strcmp(filename, "exit") == 0)
-            {
-                break; // Exit the program if the command is 'exit'
-            }
-            else if (executeDefaultCommand(filename, args) != 1)
-            {
+            pid_t pid = fork();
 
+            if (pid == 0)
+            {
                 if (search(ffs, filename, ffsCount) == 0)
                 {
                     executeCommand(filename, args);
+                    fprintf(stderr, "\033[31mE:\033[0m %s\n", strerror(errno));
+                    exit(EXIT_FAILURE);
                 }
+                else
+                {
+                    fprintf(stderr, "unknown command %s", filename);
+                }
+            }
+            else if (pid > 0)
+            {
+                wait(NULL);
             }
             else
             {
-                fprintf(stderr, "Unknown command: %s\n", filename);
+                fprintf(stderr, "fatal: %s\n", strerror(errno));
             }
         }
 
@@ -60,6 +63,4 @@ int main(int argc, char **argv)
         free(ffs[i]);
     }
     free(ffs);
-
-    return 0;
 }

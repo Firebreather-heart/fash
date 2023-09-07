@@ -1,18 +1,24 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <errno.h>
+#include <stdlib.h>
+#include "../inbuilt/cd.h"
 
-void executeDefaultCommand(char *command){
+int executeDefaultCommand(char *command, char **args){
     if (strcmp(command, "addpath") == 0){
         printf("Adding directory to path...\n");
-    } else if (strcmp(command, "ls") == 0) {
-        printf("Listing directory contents...\n");
-    } else {
-        printf("command not found: %s\n", command);
+        return 1;
+    }
+    else if (strcmp(command, "cd") == 0)
+    {
+        change_directory(args);
+        return 1;
     }
 }
 
-void executeCommand(char *binf, char **args){
+void executeCommand(char *binf, char **args)
+{
     char basepath[100] = "./fbin/";
     strcat(basepath, binf);
     execve(basepath, args, NULL);
