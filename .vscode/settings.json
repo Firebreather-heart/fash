@@ -2,5 +2,15 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"
     },
-    "python.formatting.provider": "none"
+    "python.formatting.provider": "none",
+    "C_Cpp.files.exclude": {
+        "**/.vscode": true,
+        "**/.vs": true
+    },
+    "C_Cpp.vcFormat.space.afterCastCloseParenthesis": true,
+    "C_Cpp.vcFormat.space.withinCastParentheses": true,
+    "C_Cpp.autocompleteAddParentheses": true,
+    "C_Cpp.default.intelliSenseMode": "linux-gcc-x86",
+    "C_Cpp.vcFormat.indent.accessSpecifiers": true,
+    "C_Cpp.experimentalFeatures": "enabled"
 }

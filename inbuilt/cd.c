@@ -1,4 +1,5 @@
 #include "cd.h"
+
 int change_directory(const char *path)
 {
     char *resolved_path;

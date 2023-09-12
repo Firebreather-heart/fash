@@ -3,9 +3,9 @@
 #include <string.h>
 #include <errno.h>
 #include <stdlib.h>
-#include "../inbuilt/cd.h"
+#include "./inbuilt/cd.h"
 
-int executeDefaultCommand(char *command, char **args){
+int executeDefaultCommand(char *command, char *args){
     if (strcmp(command, "addpath") == 0){
         printf("Adding directory to path...\n");
         return 1;
