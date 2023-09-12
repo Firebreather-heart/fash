@@ -1,7 +1,7 @@
 #ifndef DEFCOM_H
 #define DEFCOM_H
 
-int executeDefaultCommand(char *command, char **args);
+int executeDefaultCommand(char *command, char *args);
 
 /* 
  * executeCommand is used to execute files

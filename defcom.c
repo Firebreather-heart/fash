@@ -3,7 +3,7 @@
 #include <string.h>
 #include <errno.h>
 #include <stdlib.h>
-#include "./inbuilt/cd.h"
+#include "cd.h"
 
 int executeDefaultCommand(char *command, char *args){
     if (strcmp(command, "addpath") == 0){

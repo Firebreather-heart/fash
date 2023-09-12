@@ -10,7 +10,8 @@
     "C_Cpp.vcFormat.space.afterCastCloseParenthesis": true,
     "C_Cpp.vcFormat.space.withinCastParentheses": true,
     "C_Cpp.autocompleteAddParentheses": true,
-    "C_Cpp.default.intelliSenseMode": "linux-gcc-x86",
+    "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
     "C_Cpp.vcFormat.indent.accessSpecifiers": true,
-    "C_Cpp.experimentalFeatures": "enabled"
+    "C_Cpp.experimentalFeatures": "enabled",
+    "C_Cpp.default.compilerPath": "/usr/bin/gcc"
 }
