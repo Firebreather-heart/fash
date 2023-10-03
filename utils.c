@@ -12,12 +12,12 @@ void reader(const char *dir, const char ***dircont, int *count)
     {
         *count = 0;
         *dircont = NULL;
-
         while ((entry = readdir(od)) != NULL)
         {
             (*count)++;
             *dircont = realloc(*dircont, (*count) * sizeof(const char *));
             (*dircont)[*count - 1] = strdup(entry->d_name);
+            // printf("%s found\n", entry->d_name);
         }
 
         closedir(od);

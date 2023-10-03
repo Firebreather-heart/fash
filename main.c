@@ -10,16 +10,23 @@
 char *prompt = "# ";
 size_t n = 10;
 
+/**
+ * The main function which starts the whole shell
+ * @cwd: The array to storethe current working directory
+ * 
+ **/
 int main(int argc, char **argv)
 {
     char cwd[256];
     char *buf = NULL;
     char **args = NULL;
     char *filename = NULL;
+    pid_t pid;
+    int status;
 
     const char **ffs = NULL;
     int ffsCount = 0;
-    reader("./fbin", &ffs, &ffsCount);
+    reader("../fbin", &ffs, &ffsCount);
 
     while (1)
     {
@@ -42,7 +49,16 @@ int main(int argc, char **argv)
 
                 if (search(ffs, filename, ffsCount) == 0)
                 {
-                    executeCommand(filename, args);
+                    pid = fork();
+                    if (pid == -1)
+                        printf("fork failed");
+                    else if (pid == 0)
+                    {
+                        executeCommand(filename, args);
+                    }
+                    else{
+                        wait(&status);
+                    }
                 }
             }
             else

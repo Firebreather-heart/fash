@@ -15,11 +15,16 @@ int executeDefaultCommand(char *command, char *args){
         change_directory(args);
         return 1;
     }
+    return 0;
 }
 
 void executeCommand(char *binf, char **args)
 {
-    char basepath[100] = "./fbin/";
+    char basepath[100] = "../fbin/";
     strcat(basepath, binf);
-    execve(basepath, args, NULL);
+    int res = execve(basepath, args, NULL);
+    if (res == -1){
+        perror("<executeCommand error");
+        exit(EXIT_FAILURE);
+    }
 }
