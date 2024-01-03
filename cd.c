@@ -1,20 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 #include "cd.h"
 
 int change_directory(const char *path)
 {
     char *resolved_path;
-
     // Handle ~ (home directory)
     if (path[0] == '~')
     {
         const char *home_dir = getenv("HOME");
-        resolved_path = malloc(strlen(home_dir) + strlen(path));
+        resolved_path = malloc(sizeof(char) * (strlen(home_dir) + strlen(path)));
         strcpy(resolved_path, home_dir);
         strcat(resolved_path, path + 1);
     }
     else
     {
         resolved_path = strdup(path);
+        
     }
 
     // Handle -
@@ -60,3 +64,4 @@ int change_directory(const char *path)
     free(resolved_path);
     return 0;
 }
+

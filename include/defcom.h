@@ -1,10 +1,10 @@
 #ifndef DEFCOM_H
 #define DEFCOM_H
 
-int executeDefaultCommand(char *command, char *args);
+int executeDefaultCommand(char *command, char **args);
 
 /* 
  * executeCommand is used to execute files
 */
-void executeCommand(char *binf, char **args);
+int executeCommand(char *binf, char **args, char *env[],char **path, int path_cnt);
 #endif

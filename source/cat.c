@@ -9,5 +9,6 @@ int main(int argc, char *argv[]){
     while(fgets(buf, sizeof(buf), file)){
         printf("%s", buf);
     }
+    printf("/n");
     fclose(file);
 }

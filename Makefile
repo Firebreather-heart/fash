@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -Wall -Iinclude 
 
 # Source files and object files
-SRC = main.c tokenizer.c cd.c defcom.c path-manage.c utils.c
+SRC = main.c tokenizer.c cd.c defcom.c path-manage.c utils.c 
 OBJ_DIR = runtime
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 

@@ -32,7 +32,7 @@ int search(const char **arr, char *vector, int size)
 {
     for (int i = 0; i < size; i++)
     {
-        if (strcmp(arr[i], vector))
+        if (strcmp(arr[i], vector) == 0)
         {
             return 0;
             break;

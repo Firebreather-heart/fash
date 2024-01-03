@@ -1,20 +1,24 @@
 # my fash -aka FireShell
 
-<p>The shell is still minimal and can do a few things, its just for me to strengthen my use of C.</p>
+# My Fash - aka FireShell
 
-<p> The shell commands run similar to bash, any command input initiates a search for the binary. So for you to use any of your favorite commands, you need to ensure the binary exists.</p>
+This is a project called "My Fash" or "FireShell" which aims to provide a powerful and customizable shell environment.
 
-<p> Later i will add the neccessary binaries as deemed fit, but it will take time. You can contribute them also. </p>
+## How to Compile
 
-<p>The code was compiled with </p>
-   <code>gcc *.c -o fash </code>
-<p>compile it similarly</p>
+To compile the project, follow these steps:
 
-<h3>Config</h3>
-<p>The config folder contains the config files the program needs to run.</p>
+1. Clone the repository to your local machine.
+2. Navigate to the project directory
+3. Run the following command to compile the project:
 
-<h3>fbin</h3>
-<p>The fbin folder contains installed binaries which are executed when commands are given </p>
+   ```bash
+   $ make
+   ```
 
-<h3>Source</h3>
-<p>The source contains the source code for the bin files</p>
+   This will build the executable for the shell.
+
+## Usage
+
+Once the project is compiled, you can run the shell by executing the generated executable.
+

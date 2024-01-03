@@ -13,5 +13,6 @@
     "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
     "C_Cpp.vcFormat.indent.accessSpecifiers": true,
     "C_Cpp.experimentalFeatures": "enabled",
-    "C_Cpp.default.compilerPath": "/usr/bin/gcc"
+    "C_Cpp.default.compilerPath": "/usr/bin/gcc",
+    "C_Cpp.errorSquiggles": "disabled"
 }
